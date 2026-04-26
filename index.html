@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LifeSci Principals — Fractional Commercial Leadership</title>
+<meta name="description" content="Senior fractional commercial leadership for early-stage life sciences and omics companies. CCO-level expertise without the full-time cost.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-deep:   #04342C;
+    --teal-dark:   #0F6E56;
+    --teal-mid:    #1D9E75;
+    --teal-light:  #5DCAA5;
+    --teal-pale:   #9FE1CB;
+    --teal-ghost:  #E1F5EE;
+    --ink:         #0E1A16;
+    --ink-mid:     #3A4F47;
+    --ink-muted:   #6B8078;
+    --rule:        rgba(29,158,117,0.15);
+    --rule-strong: rgba(29,158,117,0.3);
+    --cream:       #F7F6F2;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    color: var(--ink);
+    background: #FAFAF8;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    height: 68px;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .nav-logo svg { flex-shrink: 0; }
+
+  .nav-wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-wordmark .w1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-wordmark .w2 {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-top: 3px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal-mid); }
+
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--teal-mid);
+    border: none;
+    padding: 9px 22px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--teal-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 4rem 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--rule) 1px, transparent 1px),
+      linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.6;
+  }
+
+  .hero-bg-fade {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 100% 50%, var(--teal-ghost) 0%, transparent 70%);
+    opacity: 0.5;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.1s;
+  }
+
+  .eyebrow-line {
+    width: 40px;
+    height: 1px;
+    background: var(--teal-mid);
+    flex-shrink: 0;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.25s;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal-mid);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.4s;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.55s;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 13px 30px;
+    background: var(--teal-mid);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 13px 30px;
+    background: transparent;
+    color: var(--ink-mid);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 0.5px solid var(--rule-strong);
+    border-radius: 2px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--teal-mid); color: var(--teal-mid); }
+
+  .hero-stats {
+    position: absolute;
+    right: 4rem;
+    bottom: 5rem;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.7s;
+  }
+
+  .hero-stat { text-align: right; }
+
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--teal-mid);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 6rem 4rem; }
+
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+
+  .section-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--teal-mid);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--teal-mid); }
+
+  .section-lead {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    max-width: 560px;
+    line-height: 1.85;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── PROPOSITION BAND ── */
+  .prop-band {
+    background: var(--teal-deep);
+    padding: 4rem;
+  }
+
+  .prop-band .section-tag { color: var(--teal-light); }
+  .prop-band .section-tag::before { background: var(--teal-light); }
+  .prop-band .section-title { color: var(--teal-pale); }
+  .prop-band .section-title em { color: var(--teal-light); }
+  .prop-band .section-lead { color: var(--teal-pale); opacity: 0.8; }
+
+  .prop-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .prop-col h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--teal-pale);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid rgba(93,202,165,0.2);
+  }
+
+  .prop-col p {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--teal-pale);
+    opacity: 0.75;
+    line-height: 1.8;
+  }
+
+  /* ── WHAT WE DO ── */
+  .what-band { background: white; }
+
+  .cco-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 0.5px solid var(--rule);
+    margin-bottom: 4rem;
+  }
+
+  .cco-item {
+    background: white;
+    padding: 2rem 1.75rem;
+    transition: background 0.2s;
+  }
+
+  .cco-item:hover { background: var(--teal-ghost); }
+
+  .cco-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--teal-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .cco-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .cco-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  /* ── AI SECTION ── */
+  .ai-band { background: var(--cream); }
+
+  .ai-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .ai-points {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 0.5px solid var(--rule-strong);
+  }
+
+  .ai-point {
+    padding: 1.5rem 1.75rem;
+    border-bottom: 0.5px solid var(--rule);
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .ai-point:last-child { border-bottom: none; }
+
+  .ai-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal-mid);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .ai-point-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .ai-point-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  .ai-caveat {
+    margin-top: 2rem;
+    padding: 1.5rem 1.75rem;
+    border-left: 2px solid var(--teal-mid);
+    background: white;
+  }
+
+  .ai-caveat p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* ── AUDIT SECTION ── */
+  .audit-band { background: white; }
+
+  .audit-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .audit-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .audit-step {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    border-bottom: 0.5px solid var(--rule);
+    padding: 1.25rem 0;
+  }
+
+  .audit-step:first-child { padding-top: 0; }
+  .audit-step:last-child { border-bottom: none; }
+
+  .audit-step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--teal-light);
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .audit-step-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .audit-step-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  .audit-meta {
+    background: var(--teal-deep);
+    padding: 2.5rem;
+    border-radius: 2px;
+  }
+
+  .audit-meta h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--teal-pale);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid rgba(93,202,165,0.2);
+  }
+
+  .audit-meta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 0;
+    border-bottom: 0.5px solid rgba(93,202,165,0.1);
+    font-size: 13px;
+  }
+
+  .audit-meta-item:last-child { border-bottom: none; }
+
+  .audit-meta-label { color: var(--teal-pale); opacity: 0.6; font-weight: 300; }
+  .audit-meta-value { color: var(--teal-light); font-weight: 500; }
+
+  .audit-meta-note {
+    margin-top: 1.5rem;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--teal-pale);
+    opacity: 0.5;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* ── ENGAGEMENT ── */
+  .eng-band { background: var(--cream); }
+
+  .eng-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .eng-card {
+    border: 0.5px solid var(--rule-strong);
+    padding: 2rem 1.75rem;
+    background: white;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .eng-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(4,52,44,0.08); }
+
+  .eng-card.featured {
+    border-color: var(--teal-mid);
+    border-width: 1.5px;
+  }
+
+  .eng-badge {
+    position: absolute;
+    top: -11px;
+    left: 1.75rem;
+    background: var(--teal-mid);
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 2px;
+  }
+
+  .eng-tier {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 0.75rem;
+  }
+
+  .eng-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .eng-price span {
+    font-size: 16px;
+    color: var(--ink-muted);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  .eng-commitment {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .eng-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .eng-features li {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .eng-features li::before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--teal-light);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .eng-equity {
+    margin-top: 2.5rem;
+    padding: 1.5rem 1.75rem;
+    background: white;
+    border: 0.5px solid var(--rule-strong);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .eng-equity-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--teal-ghost);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .eng-equity-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .eng-equity-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  /* ── WHO WE SERVE ── */
+  .who-band { background: white; }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .who-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .who-item {
+    padding: 1.25rem 0;
+    border-bottom: 0.5px solid var(--rule);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .who-item:first-child { padding-top: 0; }
+  .who-item:last-child { border-bottom: none; }
+
+  .who-check {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--teal-ghost);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .who-check svg { width: 10px; height: 10px; }
+
+  .who-item-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .who-item-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  .who-pull {
+    padding: 2.5rem;
+    background: var(--teal-ghost);
+    border-left: 3px solid var(--teal-mid);
+  }
+
+  .who-pull blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--teal-deep);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .who-pull-context {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  .who-pull-context strong {
+    display: block;
+    font-weight: 500;
+    color: var(--teal-dark);
+    margin-bottom: 0.5rem;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: var(--teal-deep);
+    padding: 6rem 4rem;
+    text-align: center;
+  }
+
+  .cta-band .section-title { color: var(--teal-pale); margin-bottom: 1rem; }
+  .cta-band .section-title em { color: var(--teal-light); }
+
+  .cta-band p {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--teal-pale);
+    opacity: 0.7;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+
+  .cta-email-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cta-email-link {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--teal-light);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid rgba(93,202,165,0.3);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .cta-email-link:hover { color: var(--teal-pale); border-color: var(--teal-pale); }
+
+  .cta-note {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal-pale);
+    opacity: 0.4;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #020E0B;
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .footer-wordmark .w1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--teal-pale);
+    opacity: 0.6;
+  }
+
+  .footer-wordmark .w2 {
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    opacity: 0.5;
+    margin-top: 2px;
+    display: block;
+  }
+
+  .footer-right {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--teal-pale);
+    opacity: 0.3;
+    letter-spacing: 0.06em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 2rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 2rem; }
+    .hero { padding: 100px 2rem 60px; }
+    .hero-stats { display: none; }
+    .cco-grid { grid-template-columns: 1fr 1fr; }
+    .prop-cols { grid-template-columns: 1fr; gap: 2rem; }
+    .ai-split { grid-template-columns: 1fr; gap: 3rem; }
+    .audit-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .eng-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; }
+    .prop-band { padding: 4rem 2rem; }
+    .cta-band { padding: 4rem 2rem; }
+    footer { padding: 2rem; flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .cco-grid { grid-template-columns: 1fr; }
+    .cta-email-link { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg width="36" height="36" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10" cy="24" r="5" fill="#1D9E75"/>
+      <circle cx="32" cy="10" r="7" fill="#0F6E56"/>
+      <circle cx="32" cy="38" r="4" fill="#5DCAA5"/>
+      <line x1="14.5" y1="21.2" x2="25.2" y2="13.2" stroke="#1D9E75" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="14.5" y1="26.8" x2="27" y2="35.2" stroke="#5DCAA5" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="32" y1="17" x2="32" y2="31" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 2.5"/>
+    </svg>
+    <div class="nav-wordmark">
+      <span class="w1">LifeSci</span>
+      <span class="w2">Principals</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#what-we-do">What we do</a></li>
+    <li><a href="#audit">Commercial audit</a></li>
+    <li><a href="#engagements">Engagements</a></li>
+    <li><a href="#who">Who we serve</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:info@lifesciprincipals.bio">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-fade"></div>
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow">
+      <span class="eyebrow-line"></span>
+      Fractional commercial leadership · Omics &amp; life sciences
+    </div>
+    <h1>Senior leadership.<br><em>Without the full-time cost.</em></h1>
+    <p class="hero-sub">Early-stage life sciences companies deserve CCO-level commercial thinking from day one. LifeSci Principals gives you that — embedded, strategic, and built for the pace of biotech.</p>
+    <div class="hero-actions">
+      <a href="mailto:info@lifesciprincipals.bio" class="btn-primary">Start a conversation</a>
+      <a href="#what-we-do" class="btn-secondary">See what we do</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">20+</div>
+      <div class="hero-stat-label">Years in life sciences</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">Seed–A</div>
+      <div class="hero-stat-label">Stage focus</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">US + EU</div>
+      <div class="hero-stat-label">Market reach</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPOSITION BAND -->
+<section class="prop-band">
+  <div class="section-inner">
+    <div class="section-tag">Why fractional</div>
+    <h2 class="section-title">You don't need a full-time hire.<br><em>You need the right mind in the room.</em></h2>
+    <p class="section-lead">A Chief Commercial Officer costs $300–500K all-in before you've closed your first enterprise deal. Fractional engagement gives you that same strategic horsepower — at the moment you actually need it, for a fraction of the investment.</p>
+    <div class="prop-cols">
+      <div class="prop-col reveal">
+        <h3>What you get</h3>
+        <p>A senior commercial principal embedded in your team — attending your leadership meetings, advising your founders, and owning your go-to-market strategy. Not a consultant who disappears between engagements. Someone who shows up.</p>
+      </div>
+      <div class="prop-col reveal">
+        <h3>What you avoid</h3>
+        <p>A premature full-time hire who burns runway before product-market fit is confirmed. The eighteen-month learning curve of a first commercial leader who's never navigated the omics buyer. A board conversation about why commercial costs are outpacing pipeline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="what-band" id="what-we-do">
+  <div class="section-inner">
+    <div class="section-tag reveal">What a principal does</div>
+    <h2 class="section-title reveal">The full scope of<br><em>commercial leadership.</em></h2>
+    <p class="section-lead reveal">Most early-stage teams underestimate how much a CCO actually owns. Here's the work — named explicitly, so you know exactly what you're getting.</p>
+    <div class="cco-grid">
+      <div class="cco-item reveal">
+        <div class="cco-num">01</div>
+        <div class="cco-title">Product-market fit validation</div>
+        <div class="cco-desc">Translating scientific differentiation into buyer language. Pressure-testing ICP assumptions against real market signal before committing budget to the wrong segment.</div>
+      </div>
+      <div class="cco-item reveal">
+        <div class="cco-num">02</div>
+        <div class="cco-title">Go-to-market architecture</div>
+        <div class="cco-desc">Channel strategy, pricing model, partnership vs. direct sales decision, and sequencing of market entry — built for the realities of omics and precision measurement commercialization.</div>
+      </div>
+      <div class="cco-item reveal">
+        <div class="cco-num">03</div>
+        <div class="cco-title">BD hiring and buildout</div>
+        <div class="cco-desc">Writing the job specs, running the interview process, onboarding your first commercial reps, and building comp plans that attract the right talent without overcommitting equity.</div>
+      </div>
+      <div class="cco-item reveal">
+        <div class="cco-num">04</div>
+        <div class="cco-title">US market penetration</div>
+        <div class="cco-desc">For European companies entering the US market: key account prioritization, KOL strategy, regulatory pathway navigation, and building the local commercial infrastructure from scratch.</div>
+      </div>
+      <div class="cco-item reveal">
+        <div class="cco-num">05</div>
+        <div class="cco-title">Board and investor communication</div>
+        <div class="cco-desc">Translating commercial momentum into the metrics investors understand — pipeline, bookings, NRR, win rates — and building the reporting cadence that keeps confidence high between rounds.</div>
+      </div>
+      <div class="cco-item reveal">
+        <div class="cco-num">06</div>
+        <div class="cco-title">Commercial operations foundation</div>
+        <div class="cco-desc">CRM selection and implementation, pipeline hygiene, deal stage design, and reporting infrastructure — the scaffolding your first full-time hire will thank you for building correctly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="ai-band">
+  <div class="section-inner">
+    <div class="ai-split">
+      <div>
+        <div class="section-tag reveal">AI-amplified leadership</div>
+        <h2 class="section-title reveal">The judgment is human.<br><em>AI removes the drag.</em></h2>
+        <p class="section-lead reveal">In the age of AI, a fractional leader can now deliver the output of a full commercial team. Market analysis that took two weeks takes two days. Pipeline diagnostics that required a dedicated analyst are now continuous. The leverage is real — but only when there's a senior operator directing it.</p>
+        <div class="ai-caveat reveal">
+          <p>AI won't read a room, build a relationship, or make a judgment call under pressure. You still need a human in the mix. That's what we are.</p>
+        </div>
+      </div>
+      <div class="ai-points reveal">
+        <div class="ai-point">
+          <div><div class="ai-dot"></div></div>
+          <div>
+            <div class="ai-point-title">ICP validation at speed</div>
+            <div class="ai-point-desc">AI stress-tests audience assumptions against real market signal in hours, not weeks — before you commit budget to the wrong segment.</div>
+          </div>
+        </div>
+        <div class="ai-point">
+          <div><div class="ai-dot"></div></div>
+          <div>
+            <div class="ai-point-title">Deal stage diagnostics</div>
+            <div class="ai-point-desc">Continuous pipeline analysis reveals where deals stall, which patterns predict wins, and where the commercial process is leaking — without waiting for a quarterly review.</div>
+          </div>
+        </div>
+        <div class="ai-point">
+          <div><div class="ai-dot"></div></div>
+          <div>
+            <div class="ai-point-title">Content and collateral at scale</div>
+            <div class="ai-point-desc">Pitch decks, battlecards, case studies, and sales playbooks produced in days. A one-person function with the output of a three-person team.</div>
+          </div>
+        </div>
+        <div class="ai-point">
+          <div><div class="ai-dot"></div></div>
+          <div>
+            <div class="ai-point-title">Competitive intelligence, continuously</div>
+            <div class="ai-point-desc">Automated monitoring of competitor positioning, pricing moves, and hiring patterns — keeping strategy current without a dedicated analyst on payroll.</div>
+          </div>
+        </div>
+        <div class="ai-point">
+          <div><div class="ai-dot"></div></div>
+          <div>
+            <div class="ai-point-title">BD onboarding acceleration</div>
+            <div class="ai-point-desc">AI-assisted territory planning, account prioritization, and playbook creation cuts new rep ramp time significantly — so your first hire becomes productive faster.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMERCIAL AUDIT -->
+<section class="audit-band" id="audit">
+  <div class="section-inner">
+    <div class="section-tag reveal">Where to start</div>
+    <h2 class="section-title reveal">The Commercial Audit.</h2>
+    <p class="section-lead reveal">Not sure where your commercial gaps are? The Commercial Audit is a fixed-scope diagnostic that gives you clarity in 30 days — with a written report and readout session, so you leave with a clear plan, not just observations.</p>
+    <div class="audit-layout">
+      <div class="audit-steps">
+        <div class="audit-step reveal">
+          <div class="audit-step-num">01</div>
+          <div>
+            <div class="audit-step-title">ICP validation</div>
+            <div class="audit-step-desc">Who is actually buying versus who you think is buying — and why the gap between those two answers matters for your next twelve months.</div>
+          </div>
+        </div>
+        <div class="audit-step reveal">
+          <div class="audit-step-num">02</div>
+          <div>
+            <div class="audit-step-title">Competitive positioning</div>
+            <div class="audit-step-desc">Where you win, where you lose, and the honest reasons for both — grounded in real buyer language, not internal assumptions.</div>
+          </div>
+        </div>
+        <div class="audit-step reveal">
+          <div class="audit-step-num">03</div>
+          <div>
+            <div class="audit-step-title">Go-to-market readiness</div>
+            <div class="audit-step-desc">Channel, pricing, and sequencing assessment — including an honest view of whether you're ready to sell, or whether something needs to be resolved first.</div>
+          </div>
+        </div>
+        <div class="audit-step reveal">
+          <div class="audit-step-num">04</div>
+          <div>
+            <div class="audit-step-title">Commercial infrastructure review</div>
+            <div class="audit-step-desc">CRM, pipeline hygiene, reporting gaps, and the foundational tooling decisions that will compound over time if you get them right now.</div>
+          </div>
+        </div>
+        <div class="audit-step reveal">
+          <div class="audit-step-num">05</div>
+          <div>
+            <div class="audit-step-title">Hiring gap analysis</div>
+            <div class="audit-step-desc">What commercial roles you need, in what order, and what to look for — so your first BD hire is additive, not a costly course correction.</div>
+          </div>
+        </div>
+        <div class="audit-step reveal">
+          <div class="audit-step-num">06</div>
+          <div>
+            <div class="audit-step-title">US market entry assessment</div>
+            <div class="audit-step-desc">For European companies: key account prioritization, reimbursement landscape overview, and the specific sequencing decisions that determine whether US launch succeeds or stalls.</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="audit-meta">
+          <h3>Audit at a glance</h3>
+          <div class="audit-meta-item">
+            <span class="audit-meta-label">Duration</span>
+            <span class="audit-meta-value">30 days</span>
+          </div>
+          <div class="audit-meta-item">
+            <span class="audit-meta-label">Format</span>
+            <span class="audit-meta-value">Written report + readout</span>
+          </div>
+          <div class="audit-meta-item">
+            <span class="audit-meta-label">Scope</span>
+            <span class="audit-meta-value">Fixed</span>
+          </div>
+          <div class="audit-meta-item">
+            <span class="audit-meta-label">Deliverable</span>
+            <span class="audit-meta-value">90-min strategy session</span>
+          </div>
+          <div class="audit-meta-item">
+            <span class="audit-meta-label">Next step</span>
+            <span class="audit-meta-value">Optional retainer</span>
+          </div>
+          <p class="audit-meta-note">The audit is the natural entry point to an ongoing engagement — but there is no obligation. Many clients use it as a standalone diagnostic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="eng-band" id="engagements">
+  <div class="section-inner">
+    <div class="section-tag reveal">Engagement models</div>
+    <h2 class="section-title reveal">Built around your stage.<br><em>Aligned with your outcomes.</em></h2>
+    <p class="section-lead reveal">All engagements are monthly retainers with flexible exit terms. We also offer an equity option for seed-stage companies who want to align incentives from the start.</p>
+    <div class="eng-grid">
+      <div class="eng-card reveal">
+        <div class="eng-tier">Advisory</div>
+        <div class="eng-price">$5,000 <span>/ month</span></div>
+        <div class="eng-commitment">One day per week · Minimum 3 months</div>
+        <ul class="eng-features">
+          <li>Weekly strategy session</li>
+          <li>Commercial roadmap development</li>
+          <li>Async advisory between sessions</li>
+          <li>Board prep and investor materials</li>
+          <li>Equity option available</li>
+        </ul>
+      </div>
+      <div class="eng-card featured reveal">
+        <div class="eng-badge">Most popular</div>
+        <div class="eng-tier">Embedded</div>
+        <div class="eng-price">$10,000 <span>/ month</span></div>
+        <div class="eng-commitment">Two days per week · Minimum 3 months</div>
+        <ul class="eng-features">
+          <li>Full commercial leadership presence</li>
+          <li>Pipeline ownership and BD support</li>
+          <li>Hiring process for first BD role</li>
+          <li>CRM and commercial ops buildout</li>
+          <li>KOL and account strategy</li>
+          <li>Equity option available</li>
+        </ul>
+      </div>
+      <div class="eng-card reveal">
+        <div class="eng-tier">Custom</div>
+        <div class="eng-price">Let's talk</div>
+        <div class="eng-commitment">Scoped to your specific needs</div>
+        <ul class="eng-features">
+          <li>US market entry programs</li>
+          <li>Commercial Audit as a starting point</li>
+          <li>Multi-functional leadership coverage</li>
+          <li>Network specialist access</li>
+          <li>Equity-first structures available</li>
+        </ul>
+      </div>
+    </div>
+    <div class="eng-equity reveal">
+      <div class="eng-equity-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="eng-equity-title">Equity option</div>
+        <div class="eng-equity-desc">For seed-stage companies that are cash-constrained but asset-rich, we offer a reduced monthly retainer in exchange for a small equity position. We align our incentives with your outcomes — this isn't a discount, it's a partnership structure. Ask us about it when you reach out.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="who-band" id="who">
+  <div class="section-inner">
+    <div class="who-grid">
+      <div>
+        <div class="section-tag reveal">Who we work with</div>
+        <h2 class="section-title reveal">Built for a specific<br><em>kind of company.</em></h2>
+        <p class="section-lead reveal">We work best with early-stage companies in omics, proteomics, mass spectrometry, spatial biology, and adjacent precision measurement — where the science is exceptional but commercial momentum needs a dedicated senior hand.</p>
+        <div class="who-list">
+          <div class="who-item reveal">
+            <div class="who-check">
+              <svg viewBox="0 0 12 12" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,6 5,9 10,3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="who-item-title">Seed and Series A companies</div>
+              <div class="who-item-desc">Pre-commercial or early commercial stage — before a full-time CCO hire makes economic sense, but past the point where commercial strategy can wait.</div>
+            </div>
+          </div>
+          <div class="who-item reveal">
+            <div class="who-check">
+              <svg viewBox="0 0 12 12" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,6 5,9 10,3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="who-item-title">European companies entering the US</div>
+              <div class="who-item-desc">Proteomics, mass spec, and multi-omics companies with strong European foundations who need a senior US commercial presence without opening a full office.</div>
+            </div>
+          </div>
+          <div class="who-item reveal">
+            <div class="who-check">
+              <svg viewBox="0 0 12 12" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,6 5,9 10,3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="who-item-title">Companies hiring their first BD</div>
+              <div class="who-item-desc">Founders who need a senior operator to build the job spec, run the process, and onboard the hire correctly — so the first commercial role doesn't become an expensive lesson.</div>
+            </div>
+          </div>
+          <div class="who-item reveal">
+            <div class="who-check">
+              <svg viewBox="0 0 12 12" fill="none" stroke="#1D9E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2,6 5,9 10,3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="who-item-title">Investor-backed omics platforms</div>
+              <div class="who-item-desc">Companies with strong scientific IP and investor pressure to demonstrate commercial traction — where the gap between the science and the pipeline needs closing quickly.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="who-pull">
+          <blockquote>"We built the commercial team, found a local facility to house the lab, improved bookings flow, and established the foundation that let the business scale. That's the work."</blockquote>
+          <div class="who-pull-context">
+            <strong>What this looks like in practice</strong>
+            The full scope of embedded commercial leadership — from HR systems and team construction to pipeline architecture and bookings cadence — built in parallel with a company finding its commercial footing in the US market. This is the engagement model we believe in.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="contact">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-tag reveal" style="justify-content:center;">Get in touch</div>
+    <h2 class="section-title reveal">Ready to talk about<br><em>your commercial trajectory?</em></h2>
+    <p class="reveal">The first conversation is always complimentary. Tell us where you are, where you're trying to get to, and we'll tell you honestly whether we're the right fit.</p>
+    <div class="cta-email-wrap reveal">
+      <a class="cta-email-link" href="mailto:info@lifesciprincipals.bio">info@lifesciprincipals.bio</a>
+      <span class="cta-note">We respond within one business day</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg width="28" height="28" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="10" cy="24" r="5" fill="#1D9E75" opacity="0.6"/>
+      <circle cx="32" cy="10" r="7" fill="#0F6E56" opacity="0.6"/>
+      <circle cx="32" cy="38" r="4" fill="#5DCAA5" opacity="0.6"/>
+      <line x1="14.5" y1="21.2" x2="25.2" y2="13.2" stroke="#1D9E75" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/>
+      <line x1="14.5" y1="26.8" x2="27" y2="35.2" stroke="#5DCAA5" stroke-width="1.4" stroke-linecap="round" opacity="0.4"/>
+      <line x1="32" y1="17" x2="32" y2="31" stroke="#0F6E56" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 2.5" opacity="0.4"/>
+    </svg>
+    <div class="footer-wordmark">
+      <span class="w1">LifeSci Principals</span>
+      <span class="w2">Fractional Commercial Leadership</span>
+    </div>
+  </div>
+  <div class="footer-right">San Diego, CA &nbsp;·&nbsp; lifesciprincipals.bio</div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
